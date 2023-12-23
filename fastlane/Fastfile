@@ -1,0 +1,26 @@
+# load variables from .env file in the root if it exists
+if File.exist?('../.env')
+  open('../.env', 'r').readlines.each do |l|
+    kv = l.split('=')
+    ENV[kv[0]] = kv[1].chomp
+  end
+end
+
+lane :test do
+  reviews = appstore_reviews(
+    key_id: ENV["ASCAPI_KEY_ID"],
+    issuer_id: ENV["ASCAPI_ISSUER_ID"],
+    key_content: ENV["ASCAPI_KEY_CONTENT"],
+    is_key_content_base64: true,
+    duration: 1200,
+    app_id: ENV["APP_ID"],
+    time_frame: "All"
+  )
+
+  reviews.each do |review|
+    puts "==================="
+    puts "Review Title: #{review.attributes.title}"
+    puts "Review Rating: #{review.attributes.rating}"
+    puts "Review Date #{review.attributes.created_date}"
+  end
+end
