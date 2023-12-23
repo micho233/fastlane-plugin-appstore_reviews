@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'mirsad.arslanovic@gmail.com'
 
   spec.summary       = 'Plugin to retrieve customer reviews for the app'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-appstore_reviews"
+  spec.homepage      = "https://github.com/micho233/fastlane-plugin-appstore_reviews"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
