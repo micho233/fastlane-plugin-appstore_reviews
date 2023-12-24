@@ -32,22 +32,34 @@ reviews = appstore_reviews(
 )
 ```
 
+### Example 2: Using Key File Path
+
+Use a file path to your API key for authentication.
+
+```bash
+reviews = appstore_reviews(
+    key_id: ENV["ASCAPI_KEY_ID"],
+    issuer_id: ENV["ASCAPI_ISSUER_ID"],
+    key_filepath: "path/to/key.p8",
+    duration: 1200,
+    app_id: ENV["APP_ID"],
+    time_frame: "All"
+)
+```
+
+### Example 3: Using Spaceship Token
+
+Leverage a Spaceship token for authentication. (refer: https://github.com/fastlane/fastlane/blob/master/spaceship/lib/spaceship/connect_api/token.rb)
+```bash
+reviews = appstore_reviews(
+    key: token,
+    duration: 1200,
+    app_id: ENV["APP_ID"],
+    time_frame: "All"
+)
+```
+
 Also, check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
-
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
-
-## Run tests for this plugin
-
-To run both the tests, and code style validation, run
-
-```
-rake
-```
-
-To automatically fix many of the styling issues, use
-```
-rubocop -a
-```
 
 ## Issues and Feedback
 
